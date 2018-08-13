@@ -98,28 +98,28 @@ Init_Install()
         CentOS_Lib_Opt
     elif [ "$PM" = "apt" ]; then
         Deb_Lib_Opt
-        Deb_Check_MySQL
+        #Deb_Check_MySQL
     fi
-    if [ "${DBSelect}" = "1" ]; then
-        Install_MySQL_51
-    elif [ "${DBSelect}" = "2" ]; then
-        Install_MySQL_55
-    elif [ "${DBSelect}" = "3" ]; then
-        Install_MySQL_56
-    elif [ "${DBSelect}" = "4" ]; then
-        Install_MySQL_57
-    elif [ "${DBSelect}" = "5" ]; then
-        Install_MySQL_80
-    elif [ "${DBSelect}" = "6" ]; then
-        Install_MariaDB_5
-    elif [ "${DBSelect}" = "7" ]; then
-        Install_MariaDB_10
-    elif [ "${DBSelect}" = "8" ]; then
-        Install_MariaDB_101
-    elif [ "${DBSelect}" = "9" ]; then
-        Install_MariaDB_102
-    fi
-    TempMycnf_Clean
+    #if [ "${DBSelect}" = "1" ]; then
+        #Install_MySQL_51
+    #elif [ "${DBSelect}" = "2" ]; then
+        #Install_MySQL_55
+    #elif [ "${DBSelect}" = "3" ]; then
+        #Install_MySQL_56
+    #elif [ "${DBSelect}" = "4" ]; then
+        #Install_MySQL_57
+    #elif [ "${DBSelect}" = "5" ]; then
+        #Install_MySQL_80
+    #elif [ "${DBSelect}" = "6" ]; then
+        #Install_MariaDB_5
+    #elif [ "${DBSelect}" = "7" ]; then
+        #Install_MariaDB_10
+    #elif [ "${DBSelect}" = "8" ]; then
+        #Install_MariaDB_101
+    #elif [ "${DBSelect}" = "9" ]; then
+        #Install_MariaDB_102
+    #fi
+    #TempMycnf_Clean
     Check_PHP_Option
 }
 
@@ -146,14 +146,17 @@ Install_PHP()
 
 LNMP_Stack()
 {
+    LNMP_Auto=1
+    PHPSelect=8
+    Php_Ver='php-7.2.6'
     Init_Install
     Install_PHP
-    LNMP_PHP_Opt
-    Install_Nginx
-    Creat_PHP_Tools
-    Add_Iptables_Rules
-    Add_LNMP_Startup
-    Check_LNMP_Install
+    #LNMP_PHP_Opt
+    #Install_Nginx
+    #Creat_PHP_Tools
+    #Add_Iptables_Rules
+    #Add_LNMP_Startup
+    #Check_LNMP_Install
 }
 
 LNMPA_Stack()
@@ -191,7 +194,7 @@ LAMP_Stack()
 
 case "${Stack}" in
     lnmp)
-        Dispaly_Selection
+        #Dispaly_Selection
         LNMP_Stack 2>&1 | tee /root/lnmp-install.log
         ;;
     lnmpa)
